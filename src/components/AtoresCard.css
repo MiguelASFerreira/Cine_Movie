@@ -1,0 +1,13 @@
+.carts_item .carts_item_img  {
+    padding-top: 160px;
+    background-size: cover;
+}
+
+.carts_item_img img {
+    height: 200px;
+}
+
+.casts_item_name {
+    font-size: .8rem;
+}
+

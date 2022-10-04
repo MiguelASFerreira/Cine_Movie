@@ -50,10 +50,10 @@ const Search = () => {
             <h2 className="title">
                 Resultados para: <span className="query-text">{query}</span>
             </h2>
-            <div className="movies-container">
-                {movies.length === 0 && <p>Não encontrado</p>}
+            <div className="movies-container movies-container-img">
+                {movies.length === 0 && <p>Não foi encontrado filmes com esse nome</p>}
                 {movies.length > 0 && movies.map((movie) => <MovieCard key={movie.id} movie={movie}/>)}
-                {series.length === 0 && <p>Não encontrado</p>}
+                {series.length === 0 && <p>Não foi encontrado séries com esse nome</p>}
                 {series.length > 0 && series.map((serie) => <SerieCard key={serie.id} serie={serie}/>)}
             </div>
         </div>

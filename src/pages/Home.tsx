@@ -11,33 +11,33 @@ import './MoviesGrid.css';
 
 
 const Home = () => {
-    const [TopMovies, setTopMovies] = useState([]);
-    const [topTV, setTopTV] = useState([]);
+    const [viewmovies, setViewMovies] = useState([]);
+    const [viewTV, setViewTV] = useState([]);
 
 
-    const getTopPopularMovies = async (url) => {
+    const getViewMovies = async (url) => {
         const res = await fetch(url);
         const data = await res.json();
-        setTopMovies(data.results)
+        setViewMovies(data.results)
     };
     useEffect(() => {
 
         const topPopularUrl = `${moviesUrl}upcoming?${apiKey}&language=pt-BR&page=1`;
-        getTopPopularMovies(topPopularUrl);
+        getViewMovies(topPopularUrl);
 
     }, [])
 
 
 
-    const getTopPopularTV = async (urlserie) => {
+    const getViewTV = async (urlserie) => {
         const res = await fetch(urlserie);
         const data = await res.json();
-        setTopTV(data.results)
+        setViewTV(data.results)
     };
     useEffect(() => {
 
         const topPopularUrlTV = `${tvUrl}on_the_air?${apiKey}&language=pt-BR&page=1`;
-        getTopPopularTV(topPopularUrlTV);
+        getViewTV(topPopularUrlTV);
 
     }, [])
 
@@ -47,13 +47,13 @@ const Home = () => {
         <div className='container'>
             <h2 className="title">Melhores Filmes: </h2>
             <div className="movies-container">
-                {TopMovies.length === 0 && <p>Carregando...</p>}
-                {TopMovies.length > 0 && TopMovies.map((movie) => <MovieCard key={movie.id} movie={movie}/>)}
+                {viewmovies.length === 0 && <p>Carregando...</p>}
+                {viewmovies.length > 0 && viewmovies.slice(0, 18).map((movie) => <MovieCard key={movie.id} movie={movie}/>)}
             </div>
             <h2 className="title">Melhores Séries: </h2>
             <div className="movies-container">
-                {topTV.length === 0 && <p>Carregando...</p>}
-                {topTV.length > 0 && topTV.map((serie) => <SerieCard key={serie.id} serie={serie}/>)}
+                {viewTV.length === 0 && <p>Carregando...</p>}
+                {viewTV.length > 0 && viewTV.slice(0, 18).map((serie) => <SerieCard key={serie.id} serie={serie}/>)}
             </div>
         </div>
         

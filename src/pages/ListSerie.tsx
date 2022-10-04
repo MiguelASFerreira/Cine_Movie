@@ -20,7 +20,7 @@ const ListSeries = () => {
     };
     useEffect(() => {
 
-        const topPopularUrl = `${tvUrl}popular?${apiKey}&language=pt-BR`;
+        const topPopularUrl = `${tvUrl}on_the_air?${apiKey}&language=pt-BR`;
         getTopPopularSeries(topPopularUrl);
 
     }, [])
@@ -30,7 +30,7 @@ const ListSeries = () => {
             <h2 className="title">Séries: </h2>
             <div className="movies-container">
                 {topSeries.length === 0 && <p>Carregando...</p>}
-                {topSeries.length > 0 && topSeries.map((serie) => <SerieCard key={serie.id} serie={serie}/>)}
+                {topSeries.length > 0 && topSeries.slice(0, 18).map((serie) => <SerieCard key={serie.id} serie={serie}/>)}
             </div>
         </div>
         

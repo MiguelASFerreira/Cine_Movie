@@ -1,8 +1,13 @@
+.container {
+    background-image: url("../assets/background.jpeg");
+    box-sizing: border-box;
+}
 .container .title {
     color: #fff;
     font-size: 2.5rem;
     text-align: center;
-    margin: 2rem 0 1rem;
+    padding-top: 5px;
+    margin: 0 0 1rem;
 }
 
 .title .query-text {
@@ -16,6 +21,10 @@
     padding: 2rem;
     max-width: 1200px;
     margin: 0 auto;
+}
+
+.movies-container-img {
+    padding-bottom: 528px;
 }
 
 .movies-container div {
@@ -59,3 +68,56 @@
     background-color: transparent;
     color: rebeccapurple;
 }
+
+/* CSS do Filmes Similares */
+
+
+/* .movies-container-similar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.movies-container-similar div {
+    width: 30%;
+    color: #fff;
+    margin-bottom: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: rgb(33, 33, 33);
+    padding: 1rem;
+}
+
+.movies-container-similar div svg {
+    color: #f7d354;
+}
+
+.movies-container-similar div a {
+    background-color: #f7d354;
+    border: 2px solid #f7d354;
+    border-radius: 4px;
+    color: #000;
+    padding: 1rem 0 0.5rem;
+    align-items: center;
+    transition: 0.4s;
+    text-align: center;
+    font-weight: bold;
+}
+
+.movies-container-similar div a:hover {
+    background-color: transparent;
+    color: rebeccapurple;
+}
+
+.movies-container-similar div {
+    border-radius: 10px;
+}
+
+.movies-container-similar div img {
+    border-radius: 10px;
+} */ 
+

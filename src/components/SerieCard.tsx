@@ -4,14 +4,24 @@ import {FaStar} from 'react-icons/fa';
 
 const imageUrl = import.meta.env.VITE_IMG;
 
+const setVoteClass = (vote) => {
+    if (vote >= 8) {
+      return "green";
+    } else if (vote >= 5) {
+      return "orange";
+    } else {
+      return "red";
+    }
+  };
+
 const SerieCard = ({serie, showLink = true}) => {
     return (
         <div className='movie-card'>
             <img src={imageUrl + serie.poster_path} alt={serie.title} />
             <h2>{serie.name}</h2>
-            <p>
+            <span className={`tag ${setVoteClass(serie.vote_average)}`}>
                 <FaStar /> {serie.vote_average}
-            </p>
+            </span>
             <p className="tagline">{serie.tagline}</p>
             {showLink && <Link to={`/serie/${serie.id}`}>Detalhes</Link>}
             

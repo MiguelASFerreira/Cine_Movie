@@ -1,7 +1,10 @@
 #setas {
     text-align: center;
     padding: 20px;
-    width: 100%;
+}
+
+#setas {
+    list-style: none;
 }
 
 /* #botaoLeft {
