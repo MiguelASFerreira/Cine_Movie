@@ -127,6 +127,7 @@ div img {
     text-align: center;
     padding-top: 1rem;
     margin-bottom: 2rem;
+    color: #fff
 }
 
 .section_header {
@@ -135,6 +136,7 @@ div img {
     gap: 80px;
     margin-left: 5rem;
     margin-right: 6rem;
+    color: #fff;
 }
 
 .video {

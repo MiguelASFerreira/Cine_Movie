@@ -17,7 +17,7 @@ const setVoteClass = (vote) => {
 const SerieCard = ({serie, showLink = true}) => {
     return (
         <div className='movie-card'>
-            <img src={imageUrl + serie.poster_path} alt={serie.title} />
+            <img loading='lazy' src={imageUrl + serie.poster_path} alt={serie.title} />
             <h2>{serie.name}</h2>
             <span className={`tag ${setVoteClass(serie.vote_average)}`}>
                 <FaStar /> {serie.vote_average}

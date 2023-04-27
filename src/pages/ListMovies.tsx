@@ -15,21 +15,21 @@ import { Link } from 'react-router-dom';
 
 
 const ListMovies = () => {
+    const [page, setPage] = useState(1)
     const [TopMovies, setTopMovies] = useState([]);
     const [popular, setPopular] = useState([])
 
     const getTopPopular = async (url) => {
         const res = await fetch(url);
         const data = await res.json();
-        
         setPopular(data.results)
     };
     useEffect(() => {
 
-        const topPopularUrl = `${moviesUrl}popular?${apiKey}&language=pt-BR&page=1`;
+        const topPopularUrl = `${moviesUrl}popular?${apiKey}&language=pt-BR&page=${page}`;
         getTopPopular(topPopularUrl);
 
-    }, [])
+    }, [page])
 
     const getTopPopularMovies = async (url) => {
         const res = await fetch(url);
@@ -39,10 +39,10 @@ const ListMovies = () => {
     };
     useEffect(() => {
 
-        const topPopularUrl = `${moviesUrl}now_playing?${apiKey}&language=pt-BR&page=1`;
+        const topPopularUrl = `${moviesUrl}now_playing?${apiKey}&language=pt-BR&page=${page}`;
         getTopPopularMovies(topPopularUrl);
 
-    }, [])
+    }, [page])
 
     return (
         <div className='container'>
@@ -51,6 +51,31 @@ const ListMovies = () => {
                 {TopMovies.length === 0 && <p>Carregando...</p>}
                 {TopMovies.length > 0 && TopMovies.slice(0, 18).map((movie) => <MovieCard key={movie.id} movie={movie}/>)}
             </div>
+            <div className="page">
+          <button 
+            className='back-to-top'
+            onClick={() => {
+            if (page === 1) {
+              return page ;
+            } else {
+              setPage(page - 1)
+            }
+          }}>
+            Prev
+          </button>
+          <p>{page}</p>
+          <button 
+            className='next-to-top'
+            onClick={() => {
+            if (page === 30) {
+              setPage(30)
+            } else {
+              setPage(page + 1)
+            }
+          }}>
+            Next
+          </button>
+        </div>
         </div>
     );
 }

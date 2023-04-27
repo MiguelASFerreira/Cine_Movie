@@ -63,7 +63,7 @@ const Serie = () => {
     const getVideo = async (urlvideo) => {
         const res = await fetch(urlvideo);
         const data = await res.json();
-
+        console.log(data.results)
         setVideo(data.results.slice(0, 1))
     }
 
